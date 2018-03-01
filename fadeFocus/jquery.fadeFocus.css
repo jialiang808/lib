@@ -1,0 +1,46 @@
+/* 淡入淡出式焦点图 */
+
+.slide_main_home {
+    height: 450px;
+    position: relative;
+    /*overflow: hidden;*/
+	z-index:0;
+}
+
+.slide_main_home .slide_box,
+.slide_main_home .slide {
+    display: block;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+}
+
+.slide_main_home .slide_box {
+    position: relative;
+}
+
+.slide_main_home .slide {
+    display: none;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: relative;
+    position: absolute;
+    z-index: 8;
+}
+
+.slide_main_home .prev,
+.slide_main_home .next {
+    position: absolute;
+    left: 50%;
+    z-index: 100;
+    top: 267px;
+}
+
+.slide_main_home .prev {
+    margin-left: -470px;
+}
+
+.slide_main_home .next {
+    margin-left: 451px;
+}

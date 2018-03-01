@@ -1,0 +1,269 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+html {
+    width: 100%;
+    font-size: 62.5%;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+body {
+    font-family: "微软雅黑", 'Segoe UI', Tahoma, "宋体", SimSun, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: #000;
+    background: #f0f0f0;
+    overflow-x: hidden;
+}
+
+.bodyhidden {
+    height: 100%;
+    overflow: hidden;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+ul,
+li,
+img,
+p,
+dl,
+dt,
+dd,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+table {
+    list-style: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+li:focus,
+img:focus,
+p:focus,
+dl:focus,
+dt:focus,
+dd:focus,
+div:focus {
+    list-style: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    -webkit-appearance: none;
+}
+
+a {
+    color: #333;
+    cursor: pointer;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover,
+a:active {
+    text-decoration: none;
+    outline: none;
+}
+
+
+/****** 弹框 ******/
+
+.mask-layer {
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+}
+
+
+/****** 页面loading ******/
+
+.my-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 37px;
+    height: 37px;
+    margin-left: -18px;
+    margin-top: -18px;
+    background: url(../img/wap/load.gif) no-repeat;
+}
+
+.popup-area {
+    display: none;
+    position: fixed;
+    width: 6.4rem !important;
+    z-index: 2001;
+    border-radius: 10px !important;
+    box-shadow: 5px 5px 5px #3e3e3e !important;
+    background: #ffffff;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+}
+
+.popup-area .popup-title {
+    padding: 10px;
+    color: #918e8f;
+}
+
+.popup-area .popup-header {
+    display: none;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.popup-area .popup-content {
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 30px !important;
+}
+
+.popup-area .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    height: 13px;
+    width: 13px;
+}
+
+.popup-area .popup-buttons {
+    display: none;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.popup-area .message-title {
+    width: 100%;
+    text-align: center;
+    color: #444;
+    font-size: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+
+/****** 验证控件 ******/
+
+.validator {
+    display: inline-table;
+    position: relative;
+}
+
+.validator input {
+    border: 1px solid #c2c2c2;
+    font-family: 'Microsoft YaHei';
+}
+
+.validator .message-bottom {
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: -18px;
+    height: 16px;
+}
+
+.validator .instruction {
+    padding-left: 21px;
+    background: url(../img/common/validator_01.png) no-repeat 3px 1px;
+}
+
+.validator span.error {
+    padding-left: 21px;
+    background: url(../img/common/validator_02.png) no-repeat 3px 1px;
+    color: #fd634f;
+    font-size: 12px;
+}
+
+.validator input.error,
+.validator textarea.error {
+    border: 1px solid #fd634f !important;
+}
+
+.button-common {
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+    height: 37px;
+    line-height: 37px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+    background: #ef4224;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.button-common[disabled] {
+    background: #c7ccd2;
+    border-bottom: 2px solid #77787a;
+    cursor: default;
+    color: #ccc;
+    text-shadow: #fff -1px 1px 0;
+}
+
+.button-common.button-grey {
+    color: #fff;
+    background-color: #61707d;
+}
+
+.popup-area .message-content {
+    font-size: 16px;
+    width: 80%;
+    margin: 0 auto;
+    color: #918e8f;
+    line-height: 25px;
+}
+
+.red-color {
+    color: #e34329;
+}
+
+.my-mask {
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+}

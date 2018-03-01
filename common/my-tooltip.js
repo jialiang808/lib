@@ -1,0 +1,122 @@
+var myTooltip = {
+    tooltipTimeout: null,
+    init: function() {
+        $(document).on({
+            mouseenter: function() {
+                myTooltip.displayTooltip($(this), true);
+            },
+            mouseleave: function() {
+                myTooltip.displayTooltip($(this), false);
+            }
+        }, '[my-tooltip]');
+        $(document).on({
+            mouseenter: function() {
+                myTooltip.displayTooltip($(this).prev(), true);
+            },
+            mouseleave: function() {
+                myTooltip.displayTooltip($(this).prev(), false);
+            }
+        }, '.my-tooltip');
+    },
+
+    displayTooltip: function(ele, flag) {
+        // ele.data('flag', flag);
+        clearTimeout(ele.data('timeout'));
+        ele.data('timeout', setTimeout(function() {
+            // var flag = $(ele).data('flag');
+            if (flag) {
+                myTooltip.show(ele);
+            } else {
+                myTooltip.hide(ele);
+            }
+        }, 100));
+    },
+
+    getOptions: function(ele) {
+
+        var options = {
+            tooltip: ele.attr('my-tooltip') || '',
+            position: ele.attr('my-position') || 'top', // 'top' ,'bottom'
+            offsetX: +ele.attr('my-offset-x') || 0,
+            offsetY: +ele.attr('my-offset-y') || 0,
+            className: ele.attr('my-class') || ''
+        };
+
+        return options;
+    },
+
+    show: function(ele) {
+        if (ele.data('hasTooltip')) {
+            ele.next().show();
+            myTooltip.setPosition(ele);
+            return;
+        }
+
+        var options = myTooltip.getOptions(ele);
+
+        var tooltip = $('<span class="my-tooltip"></span>').html('' + options.tooltip);
+        if (options.className) {
+            tooltip.addClass(options.className);
+        }
+
+        if (options.position == 'top') {
+            tooltip.addClass('my-tooltip-top');
+        }
+
+        if (options.position == 'bottom') {
+            tooltip.addClass('my-tooltip-bottom');
+        }
+
+        ele.after(tooltip);
+
+        myTooltip.setPosition(ele);
+
+        ele.data('hasTooltip', true);
+    },
+
+    hide: function(ele) {
+        ele.next().hide();
+    },
+
+    setPosition: function(ele) {
+
+        var tooltip = ele.next(),
+            position = ele.position(),
+            options = myTooltip.getOptions(ele),
+            width = tooltip.outerWidth(),
+            height = tooltip.outerHeight(),
+            _width = ele.outerWidth(),
+            _height = ele.outerHeight(),
+            offsetTop = position.top + +ele.css('margin-top').split('px')[0],
+            offsetLeft = position.left + +ele.css('margin-left').split('px')[0];
+
+        var positionObj = {};
+        switch (options.position) {
+            case 'top':
+                positionObj = {
+                    top: offsetTop - height - 10,
+                    left: offsetLeft + _width / 2 - width / 2 - 10
+                }
+                break;
+            case 'bottom':
+                positionObj = {
+                    top: offsetTop + _height + 10,
+                    left: offsetLeft + _width / 2 - width / 2 - 10
+                }
+                break;
+            default:
+                positionObj = {
+                    top: offsetTop - height - 10,
+                    left: offsetLeft + _width / 2 - width / 2 - 10
+                }
+                break;
+        }
+
+        positionObj.top += options.offsetY;
+        positionObj.left += options.offsetX;
+
+        tooltip.css(positionObj);
+    }
+}
+
+$(myTooltip.init);

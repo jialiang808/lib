@@ -1,0 +1,111 @@
+#main {
+    overflow: hidden;
+    zoom: 1;
+    position: relative;
+}
+
+#main-cont {
+    width: 1200px;
+    height: 500px;
+    margin: auto;
+    position: relative;
+}
+
+#main-cont img {
+    width: 1200px;
+    height: 500px;
+}
+
+#main-cont .heros {
+    width: 1200px;
+    height: 500px;
+}
+
+#main-cont .hero-wrap {
+    overflow: visible;
+    position: absolute;
+}
+
+#main-cont .header-foot {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 184px;
+    bottom: 0px;
+    z-index: 99;
+    background-color: #1e201e;
+    width: 1016px;
+    height: 74px;
+}
+
+#main-cont .header-foot>p {
+    margin-left: 50px;
+    color: white;
+    font-size: 16px;
+    margin-left: 30px;
+    margin-right: 50px;
+}
+
+#main-cont .header-foot_right {
+    margin-left: 600px;
+}
+
+#main-cont .next,
+#main-cont .prev {
+    position: absolute;
+    top: 50%;
+    margin-top: -52px;
+    z-index: 100;
+    width: 53px;
+    height: 104px;
+}
+
+#main-cont .prev {
+    background: url(../img/common/prev.png) no-repeat center center;
+    left: 800px;
+}
+
+#main-cont .next:hover,
+#main-cont .prev:hover {}
+
+#main-cont .next {
+    background: url(../img/common/next.png) no-repeat center center;
+    margin-left: 35px;
+}
+
+#main-cont .disabled {
+    background-color: #eee;
+}
+
+#main-cont .mask-left,
+#main-cont .mask-right,
+#main-cont .hero {
+    background: #fff;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1200px;
+    height: 500px;
+    overflow: hidden;
+    left: 3600px;
+}
+
+#main-cont .mask-right,
+#main-cont .mask-left {
+    z-index: 4;
+    left: -1200px;
+    filter: alpha(Opacity=50);
+    opacity: .8;
+    background: #000;
+    overflow: hidden;
+}
+
+#main-cont .mask-right {
+    left: 1200px;
+}
+
+#main-cont .active {
+    z-index: 2;
+    left: 0;
+}
